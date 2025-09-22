@@ -1,9 +1,24 @@
-
+import AllToDo from "../src/AllToDo";
 function App() {
 
   return (
     <>
-      <p className="text-xl text-red-700">Hello World! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut, quidem minus perspiciatis enim hic eum magni voluptas amet doloremque ut, nisi laboriosam! Possimus, ratione quam, amet doloribus assumenda dolorum optio reprehenderit incidunt earum officia distinctio vero cupiditate molestiae accusamus, necessitatibus minus nam voluptas ex vitae sapiente adipisci aliquam voluptatem.</p>
+      <div className="h-screen max-w-xl mx-auto bg-gradient-to-r ">
+        <h1 className="text-3xl font-bold ">ToDo App</h1>
+        <div className="flex gap-5">
+          <input type="text" className="w-40 " placeholder="Enter Your task" />
+          <button className="bg-blue-500 text-white px-4 py-2 rounded ml-2">Add</button>
+        </div>
+
+        <div>
+          <div>
+            <h2>All task list</h2>
+            <p>1/4</p>
+          </div>
+
+          <AllToDo></AllToDo>
+        </div>
+      </div>
     </>
   )
 }
