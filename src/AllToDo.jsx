@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const AllToDo = () => {
     const fetchTodos = async () => {
-        const res = await fetch("http://localhost:3000/getItems");
+        const res = await fetch("https://to-do-backend-tawny.vercel.app/getItems");
         return res.json();
     };
     const { data = [], isLoading, refetch } = useQuery({
@@ -21,7 +21,7 @@ const AllToDo = () => {
     }
 
     const handleCheckMark = async (id) => {
-        await fetch(`http://localhost:3000/update-item/${id}`, {
+        await fetch(`https://to-do-backend-tawny.vercel.app/update-item/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ isCompleted: true }),
@@ -33,7 +33,7 @@ const AllToDo = () => {
 
     const handelDeleteToDo = async (id) => {
         console.log("Delete Clicked", id);
-        await fetch(`http://localhost:3000/delete-item/${id}`, {
+        await fetch(`https://to-do-backend-tawny.vercel.app/delete-item/${id}`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
         });

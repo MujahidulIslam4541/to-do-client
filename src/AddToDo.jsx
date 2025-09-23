@@ -9,7 +9,7 @@ const AddToDo = () => {
     const handleAddTask = async () => {
         if (!task) return toast.error("Please enter a task!");
 
-        await axios.post("http://localhost:3000/create-item", { title: task });
+        await axios.post("https://to-do-backend-tawny.vercel.app/create-item", { title: task });
         toast.success("Task added successfully!");
 
         setTask("");
