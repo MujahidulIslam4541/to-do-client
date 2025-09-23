@@ -19,6 +19,13 @@ const Table = () => {
         return <Loading></Loading>
     };
 
+    const handleCheckMark = (id) => {
+        console.log("Check Mark Clicked", id)
+    }
+
+    const handelDeleteToDo = (id) => {
+        console.log("Delete Clicked", id)
+    }
 
     return (
         <>
@@ -35,10 +42,10 @@ const Table = () => {
                 >
                     <p>{todo.title}</p>
                     <div className="flex gap-2">
-                        <button className="bg-blue-200 rounded-xl text-3xl cursor-pointer">
+                        <button onClick={() => handleCheckMark(todo._id)} className="bg-blue-200 rounded-xl text-3xl cursor-pointer">
                             <IoIosCheckmark />
                         </button>
-                        <button className="bg-red-200 rounded-xl text-3xl cursor-pointer">
+                        <button onClick={()=>handelDeleteToDo(todo._id)} className="bg-red-200 rounded-xl text-3xl cursor-pointer">
                             <MdDeleteForever className="text-red-500" />
                         </button>
                     </div>
