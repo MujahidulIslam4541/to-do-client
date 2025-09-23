@@ -52,11 +52,18 @@ const AllToDo = () => {
                 <div
                     key={todo._id}
                     className={`flex justify-between rounded-2xl shadow border border-gray-300 p-4 mt-2
-                     ${todo.isCompleted ? "line-through opacity-70" : ""}
-                    `}
+            ${todo.isCompleted ? "line-through opacity-70" : ""}
+        `}
                 >
-                    <p>{todo.title}</p>
-                    <div className="flex gap-2">
+                    <div className="flex justify-between items-center w-full">
+                        <p className="font-medium">{todo.title}</p>
+                        <p className="text-sm text-gray-500">
+                            {new Date(todo.createdAt).toLocaleString()}
+                        </p>
+                    </div>
+
+
+                    <div className="flex gap-2 pl-4">
                         <button
                             onClick={() => handleCheckMark(todo._id)}
                             className="bg-blue-200 rounded-xl text-3xl cursor-pointer"
@@ -72,6 +79,7 @@ const AllToDo = () => {
                     </div>
                 </div>
             ))}
+
         </>
     );
 };
