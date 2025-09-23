@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { IoIosCheckmark } from "react-icons/io";
 import { MdDeleteForever } from "react-icons/md";
 import Loading from "./Loading";
+import toast from "react-hot-toast";
 
 const AllToDo = () => {
     const fetchTodos = async () => {
@@ -25,12 +26,19 @@ const AllToDo = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ isCompleted: true }),
         });
+        toast.success("Task completed!");
         refetch()
     };
 
 
-    const handelDeleteToDo = (id) => {
+    const handelDeleteToDo = async (id) => {
         console.log("Delete Clicked", id);
+        await fetch(`http://localhost:3000/delete-item/${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+        });
+        toast.success("Task deleted!");
+        refetch()
     };
 
     return (
